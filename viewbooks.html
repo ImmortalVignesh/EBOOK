@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='css/viewbooks.css')}}">
+</head>
+<body>
+<h1 id="head" style="color:#ffffff;font-size:100px;text-shadow:2px 2px 2px red">Ebook Management System</h1>
+
+
+{% for row in data %}
+<div class="card">
+  <img src={{row['isbn']}} alt="Avatar" style="width:100%">
+  <div class="container">
+      <h6>isbn {{row['isbn']}}</h6>
+      <div class="title">
+          <h1>{{row['title']}}</h1>
+          <h2>Author:{{row['author']}}</h2>
+      </div>
+
+      <p id="tail" ><b>{{row['des']}}</b><p>
+      <p id="pub"><b>{{row['pub']}} publications</b><p>
+      <div class="form-popup" id="myForm">
+  <form action="{{url_for('changebooks',id=data.id)}}" class="form-container" method="post">
+      <label class="edit"><b>Name</b></label>
+      <h1>hi</h1>
+      <input class="txtedit"type="text" value="{{data['id']}}" id="name" name="name" required>
+      <label><b>Email</b></label>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+
+  </div>
+</div>
+{% endfor %}
+
+
+</body>
+</html>

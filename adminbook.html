@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='css/adminbook.css')}}">
+                 <script type="text/javascript">
+          /*  $(document).ready(function(){
+            $('.edit').click(function()){
+            $('.txtedit').hide();
+            $(this).next('.txtedit').show().focus();
+            $(this).hide();
+            }}
+
+            });   */
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}</script>
+
+</head>
+<body>
+<h1 id="head" style="color:#ffffff;font-size:100px;text-shadow:2px 2px 2px red">Ebook Management System</h1>
+
+{% for row in data %}
+<div class="card">
+
+
+  <div class="container1">
+      <h6>isbn {{row['isbn']}}</h6>
+
+          <h1>{{row['title']}}</h1>
+          <h2>Author:{{row['author']}}</h2>
+
+
+      <p id="tail" ><b>{{row['des']}}</b><p>
+      <p id="pub"><b>{{row['pub']}} publications</b><p>
+      <button><b>price=${{row['price']}}</b></button><br>
+      <button class="open-button" onclick="openForm()">Open Form</button>
+      <button><a style="text-decoration:none;color:black;" onclick="return confirm('Are you sure to delete?');" href="{{url_for('deletebooks',id=row.id)}}"class="btn btn-primary">Delete</a></button><div class="form-popup" id="myForm">
+  <form action="{{url_for('changebooks',id=row.id)}}" class="form-container" method="post">
+
+      <label><b>ISBN</b></label><br>
+      <input class="txtedit"type="text" value="{{row['isbn']}}" id="name" name="isbn" required><br>
+      <label><b>TITLE</b></label><br>
+      <input class="txtedit"type="text" value="{{row['title']}}" id="title" name="title" required><br>
+      <label><b>AUTHOR</b></label><br>
+      <input class="txtedit"type="text" value="{{row['author']}}" id="author" name="author" required><br>
+       <label><b>Description</b></label><br>
+      <input class="txtedit"type="textarea" width="500px" value="{{row['des']}}" id="des" name="des" required><br>
+      <label><b>Price</b></label><br>
+      <input class="txtedit"type="text"  value="{{row['price']}}" id="price" name="price" required><br>
+      <label><b>Publications</b></label><br>
+      <input class="txtedit"type="text"  value="{{row['pub']}}" id="pub" name="pub" required><br>
+      <label><b>Pdf</b></label><br>
+      <input class="txtedit"type="file"  value="{{row['pdf']}}" id="pdf" name="pdf"><br>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <button type="submit"  class="btn btn-primary btn-block btn-lg"> Edit</button><br><br>
+  </form>
+</div>
+  </div>
+</div>
+{% endfor %}
+
+</body>
+</html>

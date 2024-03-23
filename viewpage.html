@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='css/adminbook.css')}}">
+                 <script type="text/javascript">
+          /*  $(document).ready(function(){
+            $('.edit').click(function()){
+            $('.txtedit').hide();
+            $(this).next('.txtedit').show().focus();
+            $(this).hide();
+            }}
+
+            });   */
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}</script>
+
+</head>
+<body>
+<h1 id="head" style="color:#ffffff;font-size:100px;text-shadow:2px 2px 2px red">Ebook Management System</h1>
+
+{% for row in data %}
+<div class="card">
+
+
+  <div class="container1">
+      <h6>isbn {{row['isbn']}}</h6>
+
+          <h1>{{row['title']}}</h1>
+          <h2>Author:{{row['author']}}</h2>
+
+
+      <p id="tail" ><b>{{row['des']}}</b><p>
+      <p id="pub"><b>{{row['pub']}} publications</b><p>
+      <button><b>price=${{row['price']}}</b></button><br><br><br>
+      <button class="open-button" onclick="openForm()">Buy</button>
+      <div class="form-popup" id="myForm">
+  <form action="{{url_for('trans',price=row.price)}}" class="form-container" method="post">
+
+      <label><b>id</b></label><br>
+      <input class="txtedit"type="text"  id="email" name="email" required><br>
+      <label><b>password</b></label><br>
+      <input class="txtedit"type="text" id="password" name="password" required><br>
+      <input class="txtedit"type="submit" ><br>
+
+
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+  </form>
+</div>
+  </div>
+</div>
+{% endfor %}
+
+</body>
+</html>

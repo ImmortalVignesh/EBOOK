@@ -1,0 +1,24 @@
+td
+{
+font-family:Times New Roman;
+ border: 1px solid  black;
+ padding:5px;
+ margin:20px;
+ font-size:25px;
+}
+td:hover
+{
+ color:black;
+ background-color:gray;
+}
+#head
+{
+background: rgb(3,2,2);
+background: linear-gradient(90deg, rgba(3,2,2,0.8827906162464986) 8%, rgba(32,15,19,0.5626422443977591) 95%);
+
+}
+th
+{
+font-size:30px;
+
+}

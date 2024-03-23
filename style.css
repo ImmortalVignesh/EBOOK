@@ -1,0 +1,46 @@
+.bg-nav{
+ background: rgb(30,98,180);
+background: linear-gradient(90deg, rgba(30,98,180,1) 24%, rgba(128,122,230,1) 100%, rgba(0,212,255,1) 100%);
+
+}
+
+.mt-100{
+  margin-top:100px
+  margin-left:0px;
+  width:100%
+}
+.navbar
+{
+background: rgb(3,2,2);
+background: linear-gradient(90deg, rgba(3,2,2,0.8827906162464986) 8%, rgba(32,15,19,0.5626422443977591) 95%);
+
+}
+.col-md-4
+{
+     margin-top:10px;
+
+     display:inline-block;
+
+     top:50px;
+     right:-10px;
+     position:absolute;
+
+}
+.col-md-8
+{
+position:relative;
+}
+.container
+{
+position:absolute;
+}
+.container .col-md-4 .card mt-100  .card-bod .form
+{
+position:relative;
+float:right;
+text-align:right
+}
+
+
+
+

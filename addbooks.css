@@ -1,0 +1,24 @@
+h1
+{
+
+color:#ffffff;
+font-size:50px;
+text-shadow:2px 2px 2px red;
+background: rgb(3,2,2);
+background: linear-gradient(90deg, rgba(3,2,2,0.8827906162464986) 8%, rgba(32,15,19,0.5626422443977591) 95%);
+padding-top:30px;
+padding-bottom:30px;
+font-size:100px;
+}
+th
+{
+color:black;
+font-size:20px;
+background:white;
+
+}
+td
+{
+background:white;
+}
+

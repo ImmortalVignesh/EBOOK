@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='css/viewusers.css')}}">
+</head>
+<body>
+<h1 id="head" style="color:#ffffff;font-size:100px;text-shadow:2px 2px 2px red">Ebook Management System</h1>
+<table>
+
+    <tr class="head">
+
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Contact</th>
+        <th>profile</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+            <tr>
+                <td>{{row['name']}}</td>
+                <td>{{row['email']}}</td>
+                <td>{{row['password']}}</td>
+                <td>{{row['phone']}}</td>
+                <td> <img id="picture" src="data:image/png;base64,{{ img_data }}" alt="Avatar" style="width:100%; max-
+     height: 60vh;">
+    <div class="container"></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+
+</html>

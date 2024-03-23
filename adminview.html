@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+             <script type="text/javascript">
+          /*  $(document).ready(function(){
+            $('.edit').click(function()){
+            $('.txtedit').hide();
+            $(this).next('.txtedit').show().focus();
+            $(this).hide();
+            }}
+
+            });   */
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
+
+        </script>
+      <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='css/view.css')}}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="head">Ebook Management System</h1>
+<h2>Hello {{account['name']}}</h2>
+<button class="open-button" onclick="openForm()">Open Form</button>
+<div class="mid">
+   &nbsp&nbsp&nbsp <a href="/addbooks" class="btn btn-primary">Add Books</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/adminsignout" class="btn btn-primary">Sign out!</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/adminbook" class="btn btn-primary">View Books</a>
+
+</div>
+<br><br>
+<!-- Student Profile
+<div class="student-profile py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+            <h3>{{account['name']}}</h3>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
+            <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+          </div>
+        </div>
+      </div>
+
+        -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Admin Profile</h3>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">Name</th>
+                <td width="2%">:</td>
+                <td>{{account['name']}}</td>
+              </tr>
+              <tr>
+                <th width="30%">email</th>
+                <td width="2%">:</td>
+                <td>{{account['email']}}</td>
+              </tr>
+              <tr>
+                <th width="30%">password</th>
+                <td width="2%">:</td>
+                <td>{{account['password']}}</td>
+              </tr>
+              <tr>
+                <th width="30%">Mobile no</th>
+                <td width="2%">:</td>
+                <td>{{account['phone']}}</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="msg">{{ msg }}</div>
+<div class="form-popup" id="myForm">
+  <form action="{{url_for('editadmin',id=account.id)}}" class="form-container" method="post">
+      <label class="edit"><b>Name</b></label>
+    <input class="txtedit"type="text" value="{{account['name']}}" id="name" name="name" required>
+      <label><b>Email</b></label>
+      <input type="text"  value="{{account['email']}}" name="email" id="email"required ><label class="edit"><b>Password</b></label>
+    <input class="txtedit"type="password" name="password" value="{{account['password']}}" id="password"required>
+        <label class="edit"><b>Conform Password</b></label>
+    <input class="txtedit"type="password" placeholder="Conform Password" id="passwordcon" name="passwordcon" required>
+          <label class="edit"><b>Phone Number</b></label>
+    <input class="txtedit"type=text value="{{account['phone']}}"name="phone"  id="phone"required>
+      <input type="submit" class="btn btn-primary btn-block btn-lg" value="Edit"><br><br>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+</body>
+</html>
